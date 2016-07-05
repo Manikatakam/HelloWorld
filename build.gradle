@@ -1,4 +1,6 @@
+
 apply plugin : "java"
+archivesBaseName= "HelloWorld"
 version = "1.0"
 
 repositories{
