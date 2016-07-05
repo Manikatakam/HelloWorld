@@ -1,0 +1,14 @@
+apply plugin : "java"
+version = "1.0"
+
+repositories{
+   mavenCentral()
+}
+
+dependencies {
+   compile "joda-time:joda-time:2.2"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
