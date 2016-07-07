@@ -22,9 +22,9 @@ uploadArchives{
           repository(url: "http://localhost:8081/nexus/content/repositories/snapshots/")
                {authentication(userName :"admin", password :"admin123")
 		     	 }
-				  /*pom.version = "1.0-SNAPSHOT"
+				 pom.version = "1.3-SNAPSHOT"
                  pom.artifactId = "HelloWorld"
-                 pom.groupId = "hello" */
+                 pom.groupId = "hello"
 			   }
                  }
                }
