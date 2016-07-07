@@ -1,15 +1,38 @@
 apply plugin: 'application'
 apply plugin : "java"
+apply plugin  : "maven"
 archivesBaseName= "HelloWorld"
-version = "1.0"
+version = "1.2-SNAPSHOT"
 mainClassName = 'hello.HelloWorld'
 
+  
+  /* To download artifacts from mavenCentral/from nexus repo*/
 repositories{
-   mavenCentral()
+  mavenCentral()
+   
+   maven{
+   url "http://localhost:8081/nexus/content/groups/public/"
+   }
 }
 
+/*To upload artifacts to nexus repo */
+uploadArchives{
+     repositories{
+      mavenDeployer{
+          repository(url: "http://localhost:8081/nexus/content/repositories/snapshots/")
+               {authentication(userName :"admin", password :"admin123")
+		     	 }
+				  /*pom.version = "1.0-SNAPSHOT"
+                 pom.artifactId = "HelloWorld"
+                 pom.groupId = "hello" */
+			   }
+                 }
+               }
+
 dependencies {
+   testCompile "junit:junit:3.8.1"
    compile "joda-time:joda-time:2.2"
+  
 }
 
 task wrapper(type: Wrapper) {
